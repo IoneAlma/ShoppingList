@@ -2,7 +2,7 @@ import React, {Component, Fragment} from "react"
 import ProductName from "./../views/ProductName"
 import CategoriesSelect from "./../views/CategoriesSelect"
 import AddButton from "./../views/AddButton"
-import ShoppingList from "../views/ShoppingList"
+import ShoppingItem from "../views/ShoppingItem"
 
 class ShoppingListContainer extends Component {
 
@@ -13,7 +13,7 @@ class ShoppingListContainer extends Component {
       productValue: '',
       categoryValue: 'Sin Categoría',
       isClicked: false,
-
+      productList: [],
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -35,10 +35,20 @@ class ShoppingListContainer extends Component {
     })
   }
 
-  handleClick() {
+  handleClick(event) {
+    event.preventDefault()
+    const item = { 
+      product: this.state.productValue,
+      category: this.state.categoryValue
+    }
+
     this.setState({
-      isClicked: true
-    }) 
+      isClicked: true,
+      productList: [ ...this.state.productList, item ]
+      // Los tres puntos (spread operator) realizan una copia del valor, es importante que no se modifique 
+      //  el valor anterior, se puede utilizar con objetos y con arrays
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+    })
   } 
 
   render() {
@@ -48,11 +58,12 @@ class ShoppingListContainer extends Component {
         <CategoriesSelect handleSelectChange={ this.handleSelectChange }/>
         <AddButton handleClick={ this.handleClick }/>
         { 
-          this.state.isClicked && 
-          <ShoppingList 
-            productName={ this.state.productValue } 
-            categoryName={ this.state.categoryValue }
-          /> 
+          this.state.isClicked && this.state.productList.map(item => (
+            <ShoppingItem key={ item.product }
+              productName={ item.product } 
+              categoryName={ item.category }
+            />
+          ))
         }
       </Fragment>
     ) 
