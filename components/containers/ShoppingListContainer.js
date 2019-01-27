@@ -2,7 +2,7 @@ import React, {Component, Fragment} from "react"
 import ProductName from "./../views/ProductName"
 import CategoriesSelect from "./../views/CategoriesSelect"
 import AddButton from "./../views/AddButton"
-import ProductsList from "./../views/ProductsList"
+import ShoppingList from "../views/ShoppingList"
 
 class ShoppingListContainer extends Component {
 
@@ -13,6 +13,7 @@ class ShoppingListContainer extends Component {
       productValue: '',
       categoryValue: 'Sin Categoría',
       isClicked: false,
+
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -48,7 +49,7 @@ class ShoppingListContainer extends Component {
         <AddButton handleClick={ this.handleClick }/>
         { 
           this.state.isClicked && 
-          <ProductsList 
+          <ShoppingList 
             productName={ this.state.productValue } 
             categoryName={ this.state.categoryValue }
           /> 
