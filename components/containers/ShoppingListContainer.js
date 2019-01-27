@@ -11,7 +11,7 @@ class ShoppingListContainer extends Component {
 
     this.state = {
       productValue: '',
-      categoryValue: '',
+      categoryValue: 'Sin Categoría',
       isClicked: false,
     }
 
@@ -34,7 +34,7 @@ class ShoppingListContainer extends Component {
     })
   }
 
-  handleClick(event) {
+  handleClick() {
     this.setState({
       isClicked: true
     }) 

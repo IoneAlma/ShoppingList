@@ -1,10 +1,10 @@
 import React from "react"
 
 const ProductsList = (props) => (
-  <ul>
-    <li>{ props.categoryName }</li>
-    <li>{ props.productName }</li>
-  </ul>
+  <div>
+    <h2>{ props.categoryName }</h2>
+    <h3>{ props.productName }</h3>
+  </div>
 )
 
 export default ProductsList

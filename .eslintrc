@@ -14,8 +14,8 @@
       "asyncArrow": "always"
     }],
     "max-len": ["warn", { "code": 120 }],
-    "react/no-unused-prop-types": [1],
-    "react/prop-types": [1],
+    "react/no-unused-prop-types": [0],
+    "react/prop-types": [0],
 
     "indent": ["warn", 2],
     "complexity": ["warn", 8],
