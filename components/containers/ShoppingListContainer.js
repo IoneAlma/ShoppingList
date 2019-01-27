@@ -53,7 +53,7 @@ class ShoppingListContainer extends Component {
 
   render() {
     return (
-      <Fragment>
+      <form onSubmit={ this.handleClick }>
         <ProductName  handleChange={ this.handleChange }/>
         <CategoriesSelect handleSelectChange={ this.handleSelectChange }/>
         <AddButton handleClick={ this.handleClick }/>
@@ -65,7 +65,7 @@ class ShoppingListContainer extends Component {
             />
           ))
         }
-      </Fragment>
+      </form>
     ) 
 
   }
