@@ -1,5 +1,8 @@
+let path = require('path');
+
 module.exports = {
   "output": {
+    "path": path.resolve(__dirname, ''),
     "filename": "[name].pack.js"
   },
   "module": {

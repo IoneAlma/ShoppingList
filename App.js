@@ -9,7 +9,6 @@ function App() {
     <div>
       <Title />
       <ShoppingListContainer />
-      <AddButton />
     </div>
   )
 }
